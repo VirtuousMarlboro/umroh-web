@@ -45,4 +45,4 @@ Project ini adalah website statis, sehingga Anda tidak memerlukan server backend
 
 ## 📄 Lisensi
 
-© 2024 Al-Safwa Travel. All rights reserved.
+© 2025 Muhammad Ilhaam Fadhiil. All rights reserved.
