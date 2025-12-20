@@ -1,6 +1,6 @@
 # Al-Safwa Travel Website
 
-Project ini adalah website landing page modern untuk biro perjalanan Umroh "Al-Safwa Travel". Website ini dirancang untuk menampilkan informasi paket travel, keunggulan layanan, testimoni, dan memfasilitasi pendaftaran calon jamaah secara online.
+Project ini adalah website landing page modern untuk biro perjalanan Umroh "Al-Safwa Travel". Website ini dirancang untuk menampilkan informasi paket travel, keunggulan layanan, testimoni, dan memfasilitasi pendaftaran calon jamaah secara online. Website ini dibuat sebagai portofolio untuk menampilkan keterampilan saya sebagai web developer.
 
 ## 🌟 Fitur Utama
 
