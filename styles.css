@@ -873,6 +873,163 @@ h6 {
 }
 
 /* ===================================
+   TESTIMONIAL CAROUSEL + FLOATING ACTIONS
+   =================================== */
+
+.testimonials-carousel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    position: relative;
+}
+
+.testimonials-track {
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonials-track > .testimonial-card {
+    width: 100%;
+    transition: transform var(--transition-normal);
+}
+
+.testimonial-card {
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    background: rgba(255,255,255,0.08);
+    color: var(--color-white);
+    border-radius: 999px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 2px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.carousel-btn:hover {
+    transform: translateY(-3px);
+    background: var(--color-gold);
+    color: var(--color-dark);
+}
+
+.carousel-dots {
+    position: absolute;
+    left: 50%;
+    bottom: -36px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+}
+
+.carousel-dots button.active {
+    background: var(--color-gold);
+    box-shadow: var(--shadow-gold);
+}
+
+/* Floating actions */
+.floating-actions {
+    position: fixed;
+    right: 20px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 4000;
+}
+
+.floating-whatsapp {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 30px rgba(18,140,126,0.2);
+    text-decoration: none;
+}
+
+.back-to-top {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: var(--color-dark);
+    color: var(--color-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    box-shadow: var(--shadow-md);
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .floating-actions { right: 12px; bottom: 16px; }
+}
+
+/* Gallery lightbox */
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    padding: 2rem;
+}
+
+.gallery-lightbox-inner {
+    max-width: 1100px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: auto;
+    position: relative;
+}
+
+.gallery-lightbox img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.gl-close {
+    position: absolute;
+    right: 0.5rem;
+    top: -0.5rem;
+    background: transparent;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.gl-caption {
+    margin-top: 0.5rem;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+}
+
+/* ===================================
    REGISTRATION SECTION
    =================================== */
 .register {

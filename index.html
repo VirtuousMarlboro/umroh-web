@@ -236,40 +236,47 @@
                 <span class="section-badge">Testimoni</span>
                 <h2 class="section-title">Apa Kata <span class="highlight">Jamaah Kami?</span></h2>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Pelayanan sangat memuaskan! Ustadz yang membimbing sangat sabar dan hotel dekat sekali dengan Masjidil Haram. Jazakallah khair!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">HA</div>
-                        <div class="author-info">
-                            <span class="author-name">Hj. Aminah</span>
-                            <span class="author-package">Paket Premium 2024</span>
+            <div class="testimonials-carousel" id="testimonialsCarousel" aria-roledescription="carousel">
+                <button class="carousel-btn prev" aria-label="Sebelumnya">‹</button>
+                <div class="testimonials-track" role="list">
+                    <div class="testimonial-card" data-slide role="listitem" data-aos="fade-up">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Pelayanan sangat memuaskan! Ustadz yang membimbing sangat sabar dan hotel dekat sekali dengan Masjidil Haram. Jazakallah khair!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">HA</div>
+                            <div class="author-info">
+                                <span class="author-name">Hj. Aminah</span>
+                                <span class="author-package">Paket Premium 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" data-slide role="listitem" data-aos="fade-up" data-aos-delay="100">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Sudah 2x umroh bersama Al-Safwa, selalu puas dengan pelayanannya. Semoga bisa kembali lagi ke Tanah Suci."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">BS</div>
+                            <div class="author-info">
+                                <span class="author-name">Bpk. Sulaiman</span>
+                                <span class="author-package">Paket VIP 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" data-slide role="listitem" data-aos="fade-up" data-aos-delay="200">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Manasik yang diberikan sangat lengkap, jadi saat di sana kami sudah siap beribadah. Terima kasih Al-Safwa!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SR</div>
+                            <div class="author-info">
+                                <span class="author-name">Ibu Siti Rahayu</span>
+                                <span class="author-package">Paket Regular 2024</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Sudah 2x umroh bersama Al-Safwa, selalu puas dengan pelayanannya. Semoga bisa kembali lagi ke Tanah Suci."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">BS</div>
-                        <div class="author-info">
-                            <span class="author-name">Bpk. Sulaiman</span>
-                            <span class="author-package">Paket VIP 2024</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Manasik yang diberikan sangat lengkap, jadi saat di sana kami sudah siap beribadah. Terima kasih Al-Safwa!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SR</div>
-                        <div class="author-info">
-                            <span class="author-name">Ibu Siti Rahayu</span>
-                            <span class="author-package">Paket Regular 2024</span>
-                        </div>
-                    </div>
-                </div>
+                <button class="carousel-btn next" aria-label="Selanjutnya">›</button>
+                <div class="carousel-dots" aria-hidden="false"></div>
             </div>
         </div>
     </section>
@@ -409,6 +416,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions" aria-hidden="false">
+        <a href="https://wa.me/6281234567890?text=Halo%20Al-Safwa%20Travel%20saya%20ingin%20konsultasi" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+        <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">↑</button>
+    </div>
 
     <!-- Success Modal -->
     <div class="modal" id="successModal">

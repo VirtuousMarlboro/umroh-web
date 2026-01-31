@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     initSmoothScroll();
     initFormValidation();
     initModal();
+    initTestimonialsCarousel();
+    initGalleryLightbox();
+    initFloatingButtons();
 });
 
 /* ===================================
@@ -369,3 +372,139 @@ function initCounters() {
 
 // Initialize counters
 document.addEventListener('DOMContentLoaded', initCounters);
+
+/* ===================================
+   TESTIMONIALS CAROUSEL
+   =================================== */
+function initTestimonialsCarousel() {
+    const carousel = document.getElementById('testimonialsCarousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.testimonials-track');
+    const slides = Array.from(track.querySelectorAll('[data-slide]'));
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    let current = 0;
+    let autoPlay = null;
+
+    // initialize slides
+    function render() {
+        slides.forEach((s, i) => {
+            s.style.display = i === current ? 'block' : 'none';
+            s.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+        });
+        updateDots();
+    }
+
+    function updateDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, i) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = i === current ? 'active' : '';
+            btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+            btn.addEventListener('click', () => {
+                current = i;
+                render();
+                resetAuto();
+            });
+            dotsContainer.appendChild(btn);
+        });
+    }
+
+    function prev() {
+        current = (current - 1 + slides.length) % slides.length;
+        render();
+        resetAuto();
+    }
+
+    function next() {
+        current = (current + 1) % slides.length;
+        render();
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+
+    function startAuto() {
+        autoPlay = setInterval(() => { next(); }, 6000);
+    }
+
+    function resetAuto() {
+        if (autoPlay) clearInterval(autoPlay);
+        startAuto();
+    }
+
+    render();
+    startAuto();
+}
+
+/* ===================================
+   GALLERY LIGHTBOX
+   =================================== */
+function initGalleryLightbox() {
+    const items = document.querySelectorAll('.gallery-item img');
+    if (!items.length) return;
+
+    function open(src, alt) {
+        const overlay = document.createElement('div');
+        overlay.className = 'gallery-lightbox';
+        overlay.innerHTML = `
+            <div class="gallery-lightbox-inner">
+                <button class="gl-close" aria-label="Tutup">×</button>
+                <img src="${src}" alt="${alt || ''}">
+                <div class="gl-caption">${alt || ''}</div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        // Close handlers
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay || e.target.classList.contains('gl-close')) {
+                overlay.remove();
+            }
+        });
+        document.addEventListener('keydown', function onKey(e) {
+            if (e.key === 'Escape') {
+                overlay.remove();
+                document.removeEventListener('keydown', onKey);
+            }
+        });
+    }
+
+    items.forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => open(img.src, img.alt));
+    });
+}
+
+/* ===================================
+   FLOATING BUTTONS (Back to Top)
+   =================================== */
+function initFloatingButtons() {
+    const back = document.getElementById('backToTop');
+    if (!back) return;
+
+    function onScroll() {
+        if (window.scrollY > 300) {
+            back.style.opacity = '1';
+            back.style.pointerEvents = 'auto';
+        } else {
+            back.style.opacity = '0';
+            back.style.pointerEvents = 'none';
+        }
+    }
+
+    back.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // init state
+    back.style.transition = 'opacity 250ms ease';
+    back.style.opacity = '0';
+    back.style.pointerEvents = 'none';
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+}
